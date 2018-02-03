@@ -1,0 +1,20 @@
+[
+	{
+		"_class": "com.neu.info7255.richademo1.Person",
+		"emailAddress" : "johndoe@nowhere.com",
+		"firstName" : "John",
+		"lastName" : "Doe"
+	},
+	{
+		"_class": "com.neu.info7255.richademo1.Person",
+		"emailAddress" : "jane@somewhere.com",
+		"firstName" : "Jane",
+		"lastName" : "Smith"
+	},
+	{
+		"_class": "com.neu.info7255.richademo1.Person",
+		"emailAddress" : "bobevans@someplace.com",
+		"firstName" : "Bob",
+		"lastName" : "Evans"
+	}
+]
