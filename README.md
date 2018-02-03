@@ -1,4 +1,4 @@
-# info7255springboot-redis-rb
+# Project for INFO 7255
 Spring Boot with Redis datastore
 
 ## Installing Redis
