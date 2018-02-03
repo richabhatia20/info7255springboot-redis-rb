@@ -28,5 +28,27 @@ public class PersonController {
 		
 		return repository.findAll();
 	}
+	
+	@RequestMapping(method = RequestMethod.PUT)
+	public Person add(@RequestBody @Valid Person person){
+		
+		return repository.save(person);
+	}
+	
+	@RequestMapping(method = RequestMethod.POST)
+	public Person update(@RequestBody @Valid Person person){
+		
+		return repository.save(person);
+	}
+	
+	@RequestMapping(value = "/{emailAddress:.+}", method = RequestMethod.GET)
+    public Person getById(@PathVariable String emailAddress) {
+        return repository.findOne(emailAddress);
+    }
+
+    @RequestMapping(value = "/{emailAddress:.+}", method = RequestMethod.DELETE)
+    public void deleteById(@PathVariable String emailAddress) {
+        repository.delete(emailAddress);
+    }
 
 }
