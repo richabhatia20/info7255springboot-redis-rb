@@ -24,3 +24,24 @@ The server will reply with PONG
 * Redis (Using Jedis)
 * Cloud connectors
 * Cloud Foundery discovery
+
+## Various APIs
+* http://localhost:8080/persons
+```
+[{
+	"firstName": "Bob",
+	"lastName": "Evans",
+	"emailAddress": "bobevans@someplace.com"
+}, {
+	"firstName": "John",
+	"lastName": "Doe",
+	"emailAddress": "johndoe@nowhere.com"
+}, {
+	"firstName": "Jane",
+	"lastName": "Smith",
+	"emailAddress": "jane@somewhere.com"
+}]
+```
+
+* Validating other requests through curl
+
