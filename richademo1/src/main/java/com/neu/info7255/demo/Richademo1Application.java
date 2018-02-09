@@ -18,8 +18,8 @@ public class Richademo1Application {
 
 	public static void main(String[] args) throws IOException, ProcessingException {
 		
-		File schemaFile = new File("/Users/richabhatia/Downloads/richademo1/src/main/resources/static/schema.json");
-		File jsonFile = new File("/Users/richabhatia/Downloads/richademo1/src/main/resources/static/data.json");
+		File schemaFile = new File("/Users/richabhatia/Downloads/richademo1/src/main/resources/static/usecase-schema.json");
+		File jsonFile = new File("/Users/richabhatia/Downloads/richademo1/src/main/resources/static/usecase.json");
 		 if (ValidationUtils.isJsonValid(schemaFile, jsonFile)){
 		    	System.out.println("Valid!");
 		    }else{

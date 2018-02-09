@@ -1,0 +1,25 @@
+[{
+		"_class": "com.neu.info7255.richademo1.InsurancePlan",
+		"creationDate": "Feb 8 2018",
+		"org": "Google",
+		"objectId": "123456",
+		"objectType": "costshare1",
+		"planType": "inNetwork"
+	},
+	{
+		"_class": "com.neu.info7255.richademo1.InsurancePlan",
+		"creationDate": "Feb 1 2018",
+		"org": "Apple",
+		"objectId": "7891023",
+		"objectType": "costshare2",
+		"planType": "outNetwork"
+	},
+	{
+		"_class": "com.neu.info7255.richademo1.InsurancePlan",
+		"creationDate": "Feb 8 2018",
+		"org": "Facebook",
+		"objectId": "4343432",
+		"objectType": "costshare3",
+		"planType": "inState"
+	}
+]

@@ -16,7 +16,7 @@ import com.neu.info7255.demo.Person;
 @RestController
 @RequestMapping(value = "/persons")
 public class PersonController {
-	
+	/*
 	private CrudRepository<Person, String> repository;
 	
 	@Autowired
@@ -53,4 +53,5 @@ public class PersonController {
         repository.delete(emailAddress);
     }
 
-}
+*/
+	}

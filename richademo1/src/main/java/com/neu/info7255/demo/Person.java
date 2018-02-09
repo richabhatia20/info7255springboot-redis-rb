@@ -11,7 +11,7 @@ public class Person {
 		
 	}
 	
-	public Person(String firstName, String lastName, String emailAdress){
+	public Person(String firstName, String lastName, String emailAddress){
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.emailAddress = emailAddress;
