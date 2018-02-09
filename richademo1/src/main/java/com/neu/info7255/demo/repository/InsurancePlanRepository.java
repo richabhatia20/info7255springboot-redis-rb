@@ -36,8 +36,8 @@ public class InsurancePlanRepository implements CrudRepository<InsurancePlan, St
 	}
 
 	@Override
-	public void delete(String emailAddress) {
-		hashOps.delete(PLANS_KEY, emailAddress);
+	public void delete(String planType) {
+		hashOps.delete(PLANS_KEY, planType);
 	}
 
 	@Override
@@ -78,6 +78,7 @@ public class InsurancePlanRepository implements CrudRepository<InsurancePlan, St
 
 	@Override
 	public InsurancePlan findOne(String planTypes) {
+		System.out.println("fetching plantype");
 		return hashOps.get(PLANS_KEY, planTypes);
 	}
 

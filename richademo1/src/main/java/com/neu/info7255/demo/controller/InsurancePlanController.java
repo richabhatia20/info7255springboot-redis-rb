@@ -76,11 +76,13 @@ public class InsurancePlanController {
 	
 	@RequestMapping(value = "/{planType:.+}", method = RequestMethod.GET)
     public InsurancePlan getById(@PathVariable String planType) {
+		System.out.println("get plan type:" + planType);
         return pRepository.findOne(planType);
     }
 
     @RequestMapping(value = "/{planType:.+}", method = RequestMethod.DELETE)
     public void deleteById(@PathVariable String planType) {
+    	System.out.println("delete plan type:" + planType);
         pRepository.delete(planType);
     }
 
