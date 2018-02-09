@@ -43,7 +43,7 @@ The server will reply with PONG
 }]
 ```
 
-* Validating other requests through curl
+## Validating other requests through curl
 * PUT
 
 ```
