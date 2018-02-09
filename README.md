@@ -75,6 +75,9 @@ $ curl -H "Content-Type: application/json" -X GET http://localhost:8080/persons/
 * UPDATE VIA POST
 
 ```$ curl -H "Content-Type: application/json" -X POST  -d '{"firstName":"Richa","lastName":"Bhatia","emailAddress":"richa.bhatia91@gmail.com"}' http://localhost:8080/persons
+```
+response:
+```
 {"firstName":"Richa","lastName":"Bhatia","emailAddress":"richa.bhatia91@gmail.com"}
 ```
 
