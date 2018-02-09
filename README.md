@@ -69,6 +69,9 @@ $ redis-cli hgetall persons
 
 ```
 $ curl -H "Content-Type: application/json" -X GET http://localhost:8080/persons/richa.bhatia%40gmail.com
+```
+response:
+```
 {"firstName":"Richa","lastName":"Bhatia","emailAddress":"richa.bhatia@gmail.com"}
 ```
 
