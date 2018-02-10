@@ -1,0 +1,140 @@
+{
+	"info": {
+		"name": "Info7255",
+		"_postman_id": "9fbd22ee-19b3-d9b1-8974-3c76e3694a5d",
+		"description": "# Requests for Demo1\n",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "PUT request",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\t\n\t\t\"creationDate\": \"Feb 8 2018\",\n\t\t\"org\": \"Google\",\n\t\t\"objectId\": \"123456\",\n\t\t\"objectType\": \"costshare1\",\n\t\t\"planType\": \"inNetwork\"\n\t}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/insuranceplans",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"insuranceplans"
+					]
+				},
+				"description": "put a new insurance plan in redis repository"
+			},
+			"response": []
+		},
+		{
+			"name": "GET request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/insuranceplans",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"insuranceplans"
+					]
+				},
+				"description": "Fetch all plans"
+			},
+			"response": []
+		},
+		{
+			"name": "POST request",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"creationDate\": \"Feb 9 2018\",\n    \"org\": \"Google\",\n    \"objectId\": \"123456\",\n    \"objectType\": \"costshare1\",\n    \"planType\": \"inNetwork\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/insuranceplans",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"insuranceplans"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE request",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/insuranceplans/inNetwork",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"insuranceplans",
+						"inNetwork"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "POST with plancostshares",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"planCostShares\": {\n\t\t\"deductible\": 70,\n\t\t\"_org\": \"hi2.com\",\n\t\t\"copay\": 15,\n\t\t\"objectId\": \"6034vxc2324sdf\",\n\t\t\"objectType\": \"membercostshareObjecT2\"\n\t},\n\t\"linkedPlanServices\": [{\n\t\t\"linkedService\": {\n\t\t\t\"_org\": \"hi2.com\",\n\t\t\t\"objectId\": \"6234520xvc30asdf\",\n\t\t\t\"objectType\": \"service\",\n\t\t\t\"name\": \"Yearly physical exam\"\n\t\t},\n\t\t\"planserviceCostShares\": {\n\t\t\t\"deductible\": 9,\n\t\t\t\"_org\": \"hi.com\",\n\t\t\t\"copay\": 90,\n\t\t\t\"objectId\": \"8234512xvc1314asdfs\",\n\t\t\t\"objectType\": \"membercostshareobjectType\"\n\t\t},\n\t\t\"_org\": \"hi2.com\",\n\t\t\"objectId\": \"97283xvx9asdff\",\n\t\t\"objectType\": \"planservice\"\n\t}, {\n\t\t\"linkedService\": {\n\t\t\t\"_org\": \"hi2.com\",\n\t\t\t\"objectId\": \"1234520xvc30sfs\",\n\t\t\t\"objectType\": \"serviceobjectType\",\n\t\t\t\"name\": \"well baby\"\n\t\t},\n\t\t\"planserviceCostShares\": {\n\t\t\t\"deductible\": 10,\n\t\t\t\"_org\": \"hi2.com\",\n\t\t\t\"copay\": 175,\n\t\t\t\"objectId\": \"1234512xvc1314sdfsd\",\n\t\t\t\"objectType\": \"membercostshareobjectType\"\n\t\t},\n\t\t\n\t\t\"_org\": \"hi5.com\",\n\t\t\n\t\t\"objectId\": \"97283xvx9sdf\",\n\t\t\"objectType\": \"planserviceobjectType\"\n\t}],\n\n\n\t\"_org\": \"hi5.com\",\n\t\"objectId\": \"10nzzc845ssdsdh\",\n\t\"objectType\": \"plan\",\n\t\"planType\": \"inNetwork\",\n\t\"creationDate\": \"08-11-2008\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/insuranceplans",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"insuranceplans"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

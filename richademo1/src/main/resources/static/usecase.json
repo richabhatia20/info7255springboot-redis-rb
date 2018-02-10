@@ -1,0 +1,53 @@
+{
+	"planCostShares": {
+		"deductible": "454",
+		"_org": "here.com",
+		"copay": "54",
+		"objectId": "1414vxc2324sbv",
+		"objectType": "membercostshareObjecT5"
+	},
+	"linkedPlanServices": [{
+		"linkedService": {
+			"_org": "here.com",
+			"objectId": "1134520xvc30asdfm",
+			"objectType": "service",
+			"name": "Yearly physical exam"
+		},
+		"planserviceCostShares": {
+			"deductible": "9",
+			"_org": "here.com",
+			"copay": "90",
+			"objectId": "6134512xvc1314asdfm",
+			"objectType": "membercostshareobjectType"
+		},
+		"_org": "here.com",
+		"objectId": "71283xvx9asdfm",
+		"objectType": "planservice"
+	}, {
+		"linkedService": {
+			"_org": "ibm.com",
+			"objectId": "1434520xvc30sfm",
+			"objectType": "serviceobjectType",
+			"name": "well baby"
+		},
+		"planserviceCostShares": {
+			"deductible": 10,
+			"_org": "here.com",
+			"copay": 175,
+			"objectId": "1334512xvc1314sdfsm",
+			"objectType": "membercostshareobjectType"
+		},
+		
+		"_org": "here.com",
+		
+		"objectId": "697183xvx9sdm",
+		"objectType": "planserviceobjectType"
+	}],
+
+
+	"_org": "here2.com",
+	"objectId": "22zcdefgm51483",
+	"objectType": "plan",
+	"planType": "outPTDepartment",
+	"creationDate": "19-05-2017"
+}
