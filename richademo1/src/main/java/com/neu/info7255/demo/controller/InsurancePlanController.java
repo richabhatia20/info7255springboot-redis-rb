@@ -3,7 +3,7 @@ package com.neu.info7255.demo.controller;
 //import java.io.File;
 //import java.io.FileWriter;
 import java.io.IOException;
-
+import java.util.UUID;
 
 import javax.validation.Valid;
 
@@ -16,8 +16,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.neu.info7255.demo.InsurancePlan;
+import com.neu.info7255.demo.LinkedPlanServices;
 import com.neu.info7255.demo.StringLiterals;
 import com.neu.info7255.demo.validation.ValidationUtils;
+
+import org.apache.http.impl.io.SocketOutputBuffer;
 
 //import redis.clients.jedis.Jedis;
 
@@ -62,6 +65,16 @@ public class InsurancePlanController {
 	
 	@RequestMapping(method = RequestMethod.POST)
 	public InsurancePlan update(@RequestBody @Valid InsurancePlan plan){
+		String planObjID = plan.getObjectId()+"-"+UUID.randomUUID();
+		String planCostShareObjID = plan.getPlanCostShares().getObjectId()+ "-"+ UUID.randomUUID();
+		
+		plan.setObjectId(planObjID);
+		plan.getPlanCostShares().setObjectId(planCostShareObjID);
+		
+		plan.createLinkedPlanServicesList();
+		
+		LinkedPlanServices lps = plan.getLinkedPlanServicesList().get(0);
+		System.out.println("objID: "+lps.getObjectId());
 		
 		System.out.println("post request");
 		ObjectMapper mapper = new ObjectMapper();

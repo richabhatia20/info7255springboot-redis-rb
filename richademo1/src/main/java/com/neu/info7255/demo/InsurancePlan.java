@@ -19,7 +19,7 @@ public class InsurancePlan {
 	
 	
 	private PlanCostShares planCostShares;
-	private ArrayList<LinkedPlanServices> linkedPlanServicesList = new ArrayList<LinkedPlanServices>();
+	private ArrayList<LinkedPlanServices> linkedPlanServicesList;
 	//= new ArrayList<LinkedPlanServices>();
 	
 	//LinkedPlanServices linkedPlanServices;
@@ -39,7 +39,7 @@ public class InsurancePlan {
 
 	
 
-	public InsurancePlan(String creationDate, String _org, String objectId, String objectType, String planType,
+	/*public InsurancePlan(String creationDate, String _org, String objectId, String objectType, String planType,
 			PlanCostShares planCostShares, LinkedPlanServices linkedPlanServices) {
 		super();
 		this.creationDate = creationDate;
@@ -48,13 +48,13 @@ public class InsurancePlan {
 		this.objectType = objectType;
 		this.planType = planType;
 		this.planCostShares = planCostShares;
-		
+	
 		
 		//this.linkedPlanServicesList = new ArrayList<LinkedPlanServices>();
 		linkedPlanServicesList.add(linkedPlanServices);
 		//this.setLinkedPlanServicesList(linkedPlanServicesList);
 	}
-
+	*/
 
 
 	public String getCreationDate() {
@@ -121,7 +121,34 @@ public class InsurancePlan {
 		this.linkedPlanServicesList = linkedPlanServicesList;
 	}
 
+	public void createLinkedPlanServicesList(){
+		
+		linkedPlanServicesList = new ArrayList<LinkedPlanServices>();
+		
+		LinkedService ls = new LinkedService();
+		ls.setName("test");
+		ls.setObjectId("test");
+		ls.setObjectType("test");
+		ls.setOrg("test");
+		PlanserviceCostShares pcs = new PlanserviceCostShares();
+		pcs.set_org("test");
+		pcs.setCopay("10");
+		pcs.setDeductible("10");
+		pcs.setObjectId("test");
+		pcs.setObjectType("test");
+		
+		
+		LinkedPlanServices lps = new LinkedPlanServices();
+		lps.set_org("test");
+		lps.setObjectId("test");
+		lps.setObjectType("test");
+		
+		lps.setLinkedService(ls);
+		lps.setPlanServiceCostShares(pcs);
+		linkedPlanServicesList.add(lps);
+	}
 
+	
 
 	
 }
