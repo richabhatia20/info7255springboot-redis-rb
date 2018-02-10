@@ -15,7 +15,7 @@ public class LinkedPlanServices implements Serializable{
 	
 	private LinkedService linkedService;
 	private PlanserviceCostShares planServiceCostShares;
-	private String _org;
+	private String org;
 	private String objectId;
 	private String objectType;
 	
@@ -26,7 +26,7 @@ public class LinkedPlanServices implements Serializable{
 	@Override
 	public String toString() {
 		return "LinkedPlanServices [linkedService=" + linkedService + ", planServiceCostShares=" + planServiceCostShares
-				+ ", _org=" + _org + ", objectId=" + objectId + ", objectType=" + objectType + "]";
+				+ ", _org=" + org + ", objectId=" + objectId + ", objectType=" + objectType + "]";
 	}
 
 	public LinkedService getLinkedService() {
@@ -45,12 +45,12 @@ public class LinkedPlanServices implements Serializable{
 		this.planServiceCostShares = planServiceCostShares;
 	}
 
-	public String get_org() {
-		return _org;
+	public String getOrg() {
+		return org;
 	}
 
-	public void set_org(String _org) {
-		this._org = _org;
+	public void setOrg(String org) {
+		this.org = org;
 	}
 
 	public String getObjectId() {

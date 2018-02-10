@@ -12,7 +12,7 @@ public class StringLiterals {
 	
 	
 	String schema = FileUtils.readFileToString(schemaFile);
-	System.out.println("schema is:" + schema);
+	System.out.println("schema fetch");
 	return schema;
 	}
 

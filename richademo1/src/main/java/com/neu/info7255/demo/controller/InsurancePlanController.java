@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
@@ -25,9 +26,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.neu.info7255.demo.InsurancePlan;
 import com.neu.info7255.demo.LinkedPlanServices;
 import com.neu.info7255.demo.StringLiterals;
+import com.neu.info7255.demo.config.MyRedisConnection;
 import com.neu.info7255.demo.validation.ValidationUtils;
 
-
+import redis.clients.jedis.Jedis;
 
 //import redis.clients.jedis.Jedis;
 
@@ -39,7 +41,9 @@ import com.neu.info7255.demo.validation.ValidationUtils;
 //import com.google.gson.Gson;
 import org.json.JSONObject;
 
+import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.fge.jsonschema.core.exceptions.ProcessingException;
 import com.google.common.reflect.TypeToken;
@@ -59,6 +63,9 @@ public class InsurancePlanController {
 		this.pRepository = pRepository;
 	}
 	
+	
+	
+	
 	@RequestMapping(method = RequestMethod.GET)
 	@ResponseBody
 	public Iterable<InsurancePlan> plans(HttpServletRequest request, HttpServletResponse response) throws NoSuchAlgorithmException{
@@ -70,10 +77,65 @@ public class InsurancePlanController {
 	
 	@RequestMapping(method = RequestMethod.PUT)
 	@ResponseBody
-	public InsurancePlan add(@RequestBody @Valid InsurancePlan plan,HttpServletRequest request, HttpServletResponse response) throws NoSuchAlgorithmException{
+	public String add(@RequestBody @Valid InsurancePlan plan,HttpServletRequest request, HttpServletResponse response) throws NoSuchAlgorithmException{
+		ObjectMapper mapper = new ObjectMapper();
+		
+		String planObjID = plan.getObjectId()+"-"+UUID.randomUUID();
+		String planCostShareObjID = plan.getPlanCostShares().getObjectId()+ "-"+ UUID.randomUUID();
+		
+		plan.setObjectId(planObjID);
+		plan.getPlanCostShares().setObjectId(planCostShareObjID);
+		
+		//plan.createLinkedPlanServicesList();
+		String schemaFile = null;
 		String etag = generateEtagsForResponse(new Date().toString());
 		response.setHeader("eTag", etag);
-		return pRepository.save(plan);
+		try {
+			schemaFile = StringLiterals.getSchemaString();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			System.out.println("error occured");
+			e1.printStackTrace();
+			
+		}
+		String json = null;
+		try {
+			json = mapper.writeValueAsString(plan);
+			Map<String, Object> myMap = new Gson().fromJson(json, new TypeToken<Map<String,Object>>(){}.getType()) ;
+			System.out.println("map using type token: " +myMap);
+			//pRepository.save(myMap);
+			
+		} catch (JsonProcessingException e1) {
+			// TODO Auto-generated catch block
+			System.out.println("error occured");
+			e1.printStackTrace();
+		}
+		
+		 try {
+			 System.out.println("validation check:");
+			 System.out.println("printing json:" + json);
+				if (ValidationUtils.isJsonValid(schemaFile, json)){
+				    	System.out.println("Valid!");
+				    	pRepository.save(plan);
+				    	return "{'message':'Plan saved successfully'}";
+				    }else{
+				    	System.out.println("NOT valid!");
+				    	InsurancePlan plan2 = new InsurancePlan();
+				    	response.setStatus(415);
+				    	return "{'message':'Plan is invalid and cant be saved'}";
+				    	
+				    	
+				    }
+			} catch (ProcessingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		
+		
+		return "test";
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)

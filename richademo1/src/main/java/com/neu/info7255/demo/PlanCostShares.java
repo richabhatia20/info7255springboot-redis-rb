@@ -10,7 +10,7 @@ package com.neu.info7255.demo;
 public class PlanCostShares {
 
 	private String deductible;
-	private String _org;
+	private String org;
 	private String copay;
 	private String objectId;
 	private String objectType;
@@ -19,10 +19,10 @@ public class PlanCostShares {
 		// TODO Auto-generated constructor stub
 	}
 
-	public PlanCostShares(String deductible, String _org, String copay, String objectId, String objectType) {
+	public PlanCostShares(String deductible, String org, String copay, String objectId, String objectType) {
 		
 		this.deductible = deductible;
-		this._org = _org;
+		this.org = org;
 		this.copay = copay;
 		this.objectId = objectId;
 		this.objectType = objectType;
@@ -31,7 +31,7 @@ public class PlanCostShares {
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return "PlanCostShares deductible: "+ deductible + ", copay:"+copay+", org: " +_org + ", objectId: " + objectId+ ", objectType: "+objectType;
+		return "PlanCostShares deductible: "+ deductible + ", copay:"+copay+", org: " +org + ", objectId: " + objectId+ ", objectType: "+objectType;
 	}
 
 	public String getDeductible() {
@@ -43,11 +43,11 @@ public class PlanCostShares {
 	}
 
 	public String getOrg() {
-		return _org;
+		return org;
 	}
 
-	public void setOrg(String _org) {
-		this._org = _org;
+	public void setOrg(String org) {
+		this.org = org;
 	}
 
 	public String getCopay() {

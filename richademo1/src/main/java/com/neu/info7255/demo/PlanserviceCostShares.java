@@ -10,7 +10,7 @@ package com.neu.info7255.demo;
 public class PlanserviceCostShares {
 
 	private String deductible;
-	private String _org;
+	private String org;
 	private String copay;
 	private String objectId;
 	private String objectType;
@@ -23,7 +23,7 @@ public class PlanserviceCostShares {
 
 	@Override
 	public String toString() {
-		return "PlanserviceCostShares [deductible=" + deductible + ", _org=" + _org + ", copay=" + copay + ", objectId="
+		return "PlanserviceCostShares [deductible=" + deductible + ", _org=" + org + ", copay=" + copay + ", objectId="
 				+ objectId + ", objectType=" + objectType + "]";
 	}
 
@@ -32,7 +32,7 @@ public class PlanserviceCostShares {
 	public PlanserviceCostShares(String deductible, String _org, String copay, String objectId, String objectType) {
 		super();
 		this.deductible = deductible;
-		this._org = _org;
+		this.org = _org;
 		this.copay = copay;
 		this.objectId = objectId;
 		this.objectType = objectType;
@@ -47,11 +47,11 @@ public class PlanserviceCostShares {
 	}
 
 	public String get_org() {
-		return _org;
+		return org;
 	}
 
 	public void set_org(String _org) {
-		this._org = _org;
+		this.org = _org;
 	}
 
 	public String getCopay() {

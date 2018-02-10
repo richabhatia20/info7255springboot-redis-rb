@@ -28,7 +28,6 @@ public class Richademo1Application {
 		
 		
 		
-		
 		SpringApplication.run(Richademo1Application.class, args);
 	}
 }

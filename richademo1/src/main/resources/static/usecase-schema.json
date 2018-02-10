@@ -1,256 +1,203 @@
 {
-  "$id": "http://example.com/example.json",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
-  "definitions": {},
-  "$schema": "http://json-schema.org/draft-06/schema#",
   "properties": {
     "planCostShares": {
-      "$id": "/properties/planCostShares",
       "type": "object",
       "properties": {
         "deductible": {
-          "$id": "/properties/planCostShares/properties/deductible",
-          "type": "string",
-          "title": "The Deductible Schema",
-          "description": "An explanation about the purpose of this instance.",
-          "default": "",
-          "examples": [
-            "70"
-          ]
+          "type": "string"
         },
-        "_org": {
-          "$id": "/properties/planCostShares/properties/_org",
-          "type": "string",
-          "title": "The _org Schema",
-          "description": "An explanation about the purpose of this instance.",
-          "default": "",
-          "examples": [
-            "bigdata.com"
-          ]
+        "org": {
+          "type": "string"
         },
         "copay": {
-          "$id": "/properties/planCostShares/properties/copay",
-          "type": "string",
-          "title": "The Copay Schema",
-          "description": "An explanation about the purpose of this instance.",
-          "default": "",
-          "examples": [
-            "15"
-          ]
+          "type": "string"
         },
         "objectId": {
-          "$id": "/properties/planCostShares/properties/objectId",
-          "type": "string",
-          "title": "The Objectid Schema",
-          "description": "An explanation about the purpose of this instance.",
-          "default": "",
-          "examples": [
-            "6034vxc2324sdf"
-          ]
+          "type": "string"
         },
         "objectType": {
-          "$id": "/properties/planCostShares/properties/objectType",
-          "type": "string",
-          "title": "The Objecttype Schema",
-          "description": "An explanation about the purpose of this instance.",
-          "default": "",
-          "examples": [
-            "membercostshareObjecT2"
-          ]
+          "type": "string"
         }
-      }
+      },
+      "required": [
+        "deductible",
+        "org",
+        "copay",
+        "objectId",
+        "objectType"
+      ]
     },
     "linkedPlanServices": {
-      "$id": "/properties/linkedPlanServices",
       "type": "array",
-      "items": {
-        "$id": "/properties/linkedPlanServices/items",
-        "type": "object",
-        "properties": {
-          "linkedService": {
-            "$id": "/properties/linkedPlanServices/items/properties/linkedService",
-            "type": "object",
-            "properties": {
-              "_org": {
-                "$id": "/properties/linkedPlanServices/items/properties/linkedService/properties/_org",
-                "type": "string",
-                "title": "The _org Schema",
-                "description": "An explanation about the purpose of this instance.",
-                "default": "",
-                "examples": [
-                  "bigdata.com"
-                ]
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "linkedService": {
+              "type": "object",
+              "properties": {
+                "org": {
+                  "type": "string"
+                },
+                "objectId": {
+                  "type": "string"
+                },
+                "objectType": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                }
               },
-              "objectId": {
-                "$id": "/properties/linkedPlanServices/items/properties/linkedService/properties/objectId",
-                "type": "string",
-                "title": "The Objectid Schema",
-                "description": "An explanation about the purpose of this instance.",
-                "default": "",
-                "examples": [
-                  "6234520xvc30asdf"
-                ]
+              "required": [
+                "org",
+                "objectId",
+                "objectType",
+                "name"
+              ]
+            },
+            "planserviceCostShares": {
+              "type": "object",
+              "properties": {
+                "deductible": {
+                  "type": "string"
+                },
+                "org": {
+                  "type": "string"
+                },
+                "copay": {
+                  "type": "string"
+                },
+                "objectId": {
+                  "type": "string"
+                },
+                "objectType": {
+                  "type": "string"
+                }
               },
-              "objectType": {
-                "$id": "/properties/linkedPlanServices/items/properties/linkedService/properties/objectType",
-                "type": "string",
-                "title": "The Objecttype Schema",
-                "description": "An explanation about the purpose of this instance.",
-                "default": "",
-                "examples": [
-                  "service"
-                ]
-              },
-              "name": {
-                "$id": "/properties/linkedPlanServices/items/properties/linkedService/properties/name",
-                "type": "string",
-                "title": "The Name Schema",
-                "description": "An explanation about the purpose of this instance.",
-                "default": "",
-                "examples": [
-                  "Yearly physical exam"
-                ]
-              }
+              "required": [
+                "deductible",
+                "org",
+                "copay",
+                "objectId",
+                "objectType"
+              ]
+            },
+            "org": {
+              "type": "string"
+            },
+            "objectId": {
+              "type": "string"
+            },
+            "objectType": {
+              "type": "string"
             }
           },
-          "planserviceCostShares": {
-            "$id": "/properties/linkedPlanServices/items/properties/planserviceCostShares",
-            "type": "object",
-            "properties": {
-              "deductible": {
-                "$id": "/properties/linkedPlanServices/items/properties/planserviceCostShares/properties/deductible",
-                "type": "string",
-                "title": "The Deductible Schema",
-                "description": "An explanation about the purpose of this instance.",
-                "default": "",
-                "examples": [
-                  "9"
-                ]
+          "required": [
+            "linkedService",
+            "planserviceCostShares",
+            "org",
+            "objectId",
+            "objectType"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "linkedService": {
+              "type": "object",
+              "properties": {
+                "org": {
+                  "type": "string"
+                },
+                "objectId": {
+                  "type": "string"
+                },
+                "objectType": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                }
               },
-              "_org": {
-                "$id": "/properties/linkedPlanServices/items/properties/planserviceCostShares/properties/_org",
-                "type": "string",
-                "title": "The _org Schema",
-                "description": "An explanation about the purpose of this instance.",
-                "default": "",
-                "examples": [
-                  "bigdata.com"
-                ]
+              "required": [
+                "org",
+                "objectId",
+                "objectType",
+                "name"
+              ]
+            },
+            "planserviceCostShares": {
+              "type": "object",
+              "properties": {
+                "deductible": {
+                  "type": "string"
+                },
+                "org": {
+                  "type": "string"
+                },
+                "copay": {
+                  "type": "string"
+                },
+                "objectId": {
+                  "type": "string"
+                },
+                "objectType": {
+                  "type": "string"
+                }
               },
-              "copay": {
-                "$id": "/properties/linkedPlanServices/items/properties/planserviceCostShares/properties/copay",
-                "type": "string",
-                "title": "The Copay Schema",
-                "description": "An explanation about the purpose of this instance.",
-                "default": "",
-                "examples": [
-                  "90"
-                ]
-              },
-              "objectId": {
-                "$id": "/properties/linkedPlanServices/items/properties/planserviceCostShares/properties/objectId",
-                "type": "string",
-                "title": "The Objectid Schema",
-                "description": "An explanation about the purpose of this instance.",
-                "default": "",
-                "examples": [
-                  "8234512xvc1314asdfs"
-                ]
-              },
-              "objectType": {
-                "$id": "/properties/linkedPlanServices/items/properties/planserviceCostShares/properties/objectType",
-                "type": "string",
-                "title": "The Objecttype Schema",
-                "description": "An explanation about the purpose of this instance.",
-                "default": "",
-                "examples": [
-                  "membercostshareobjectType"
-                ]
-              }
+              "required": [
+                "deductible",
+                "org",
+                "copay",
+                "objectId",
+                "objectType"
+              ]
+            },
+            "org": {
+              "type": "string"
+            },
+            "objectId": {
+              "type": "string"
+            },
+            "objectType": {
+              "type": "string"
             }
           },
-          "_org": {
-            "$id": "/properties/linkedPlanServices/items/properties/_org",
-            "type": "string",
-            "title": "The _org Schema",
-            "description": "An explanation about the purpose of this instance.",
-            "default": "",
-            "examples": [
-              "hi2.com"
-            ]
-          },
-          "objectId": {
-            "$id": "/properties/linkedPlanServices/items/properties/objectId",
-            "type": "string",
-            "title": "The Objectid Schema",
-            "description": "An explanation about the purpose of this instance.",
-            "default": "",
-            "examples": [
-              "97283xvx9asdff"
-            ]
-          },
-          "objectType": {
-            "$id": "/properties/linkedPlanServices/items/properties/objectType",
-            "type": "string",
-            "title": "The Objecttype Schema",
-            "description": "An explanation about the purpose of this instance.",
-            "default": "",
-            "examples": [
-              "planservice"
-            ]
-          }
+          "required": [
+            "linkedService",
+            "planserviceCostShares",
+            "org",
+            "objectId",
+            "objectType"
+          ]
         }
-      }
-    },
-    "_org": {
-      "$id": "/properties/_org",
-      "type": "string",
-      "title": "The _org Schema",
-      "description": "An explanation about the purpose of this instance.",
-      "default": "",
-      "examples": [
-        "bigdata.com"
       ]
+    },
+    "org": {
+      "type": "string"
     },
     "objectId": {
-      "$id": "/properties/objectId",
-      "type": "string",
-      "title": "The Objectid Schema",
-      "description": "An explanation about the purpose of this instance.",
-      "default": "",
-      "examples": [
-        "abcdefghi99"
-      ]
+      "type": "string"
     },
     "objectType": {
-      "$id": "/properties/objectType",
-      "type": "string",
-      "title": "The Objecttype Schema",
-      "description": "An explanation about the purpose of this instance.",
-      "default": "",
-      "examples": [
-        "plan"
-      ]
+      "type": "string"
     },
     "planType": {
-      "$id": "/properties/planType",
-      "type": "string",
-      "title": "The Plantype Schema",
-      "description": "An explanation about the purpose of this instance.",
-      "default": "",
-      "examples": [
-        "inNetwork"
-      ]
+      "type": "string"
     },
     "creationDate": {
-      "$id": "/properties/creationDate",
-      "type": "string",
-      "title": "The Creationdate Schema",
-      "description": "An explanation about the purpose of this instance.",
-      "default": "",
-      "examples": [
-        "10-07-2009"
-      ]
+      "type": "string"
     }
-  }
+  },
+  "required": [
+   
+    "org",
+    "objectId",
+    "objectType",
+    "planType",
+    "creationDate"
+  ]
 }

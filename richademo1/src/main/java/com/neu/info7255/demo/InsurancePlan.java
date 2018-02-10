@@ -12,14 +12,14 @@ import java.util.ArrayList;
 public class InsurancePlan {
 	
 	private String creationDate;
-	private String _org;
+	private String org;
 	private String objectId;
 	private String objectType;
 	private String planType;
 	
 	
 	private PlanCostShares planCostShares;
-	private ArrayList<LinkedPlanServices> linkedPlanServicesList;
+	private ArrayList<LinkedPlanServices> linkedPlanServices;
 	//= new ArrayList<LinkedPlanServices>();
 	
 	//LinkedPlanServices linkedPlanServices;
@@ -34,7 +34,7 @@ public class InsurancePlan {
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return "PlanDetails creationDate: "+ creationDate + ", org: " +_org + ", objectId: " + objectId+ ", objectType: "+objectType;
+		return "PlanDetails creationDate: "+ creationDate + ", org: " +org + ", objectId: " + objectId+ ", objectType: "+objectType;
 	}
 
 	
@@ -66,11 +66,11 @@ public class InsurancePlan {
 	}
 
 	public String getOrg() {
-		return _org;
+		return org;
 	}
 
 	public void setOrg(String _org) {
-		this._org = _org;
+		this.org = _org;
 	}
 
 	public String getObjectId() {
@@ -112,40 +112,40 @@ public class InsurancePlan {
 
 
 	public ArrayList<LinkedPlanServices> getLinkedPlanServicesList() {
-		return linkedPlanServicesList;
+		return linkedPlanServices;
 	}
 
 
 
 	public void setLinkedPlanServicesList(ArrayList<LinkedPlanServices> linkedPlanServicesList) {
-		this.linkedPlanServicesList = linkedPlanServicesList;
+		this.linkedPlanServices = linkedPlanServicesList;
 	}
 
 	public void createLinkedPlanServicesList(){
 		
-		linkedPlanServicesList = new ArrayList<LinkedPlanServices>();
+		linkedPlanServices = new ArrayList<LinkedPlanServices>();
 		
 		LinkedService ls = new LinkedService();
-		ls.setName("test");
-		ls.setObjectId("test");
-		ls.setObjectType("test");
-		ls.setOrg("test");
+		ls.setName("here.com");
+		ls.setObjectId("1134520xvc30asdfm");
+		ls.setObjectType("service");
+		ls.setOrg("Yearly physical exam");
 		PlanserviceCostShares pcs = new PlanserviceCostShares();
 		pcs.set_org("test");
-		pcs.setCopay("10");
-		pcs.setDeductible("10");
-		pcs.setObjectId("test");
-		pcs.setObjectType("test");
+		pcs.setCopay("90");
+		pcs.setDeductible("here.com");
+		pcs.setObjectId("6134512xvc1314asdfm");
+		pcs.setObjectType("membercostshareobjectType");
 		
 		
 		LinkedPlanServices lps = new LinkedPlanServices();
-		lps.set_org("test");
+		lps.setOrg("test");
 		lps.setObjectId("test");
 		lps.setObjectType("test");
 		
 		lps.setLinkedService(ls);
 		lps.setPlanServiceCostShares(pcs);
-		linkedPlanServicesList.add(lps);
+		linkedPlanServices.add(lps);
 	}
 
 	

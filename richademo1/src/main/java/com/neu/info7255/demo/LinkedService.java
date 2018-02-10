@@ -9,7 +9,7 @@ package com.neu.info7255.demo;
  */
 public class LinkedService {
 
-	private String _org;
+	private String org;
 	private String objectId;
 	private String objectType;
 	private String name;
@@ -25,7 +25,7 @@ public class LinkedService {
 	
 	@Override
 	public String toString() {
-		return "LinkedService [_org=" + _org + ", objectId=" + objectId + ", objectType=" + objectType + ", name="
+		return "LinkedService [_org=" + org + ", objectId=" + objectId + ", objectType=" + objectType + ", name="
 				+ name + "]";
 	}
 
@@ -36,7 +36,7 @@ public class LinkedService {
 
 	public LinkedService(String _org, String objectId, String objectType, String name) {
 	
-		this._org = _org;
+		this.org = _org;
 		this.objectId = objectId;
 		this.objectType = objectType;
 		this.name = name;
@@ -45,11 +45,11 @@ public class LinkedService {
 
 
 	public String getOrg() {
-		return _org;
+		return org;
 	}
 
 	public void setOrg(String _org) {
-		this._org = _org;
+		this.org = _org;
 	}
 
 	public String getObjectId() {

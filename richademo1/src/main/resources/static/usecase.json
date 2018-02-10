@@ -1,53 +1,53 @@
 {
 	"planCostShares": {
-		"deductible": "70",
-		"_org": "bigdata7225.com",
-		"copay": "15",
-		"objectId": "6034vxc2324sdf",
-		"objectType": "membercostshareObjecT2"
+		"deductible": "454",
+		"_org": "here.com",
+		"copay": "54",
+		"objectId": "1414vxc2324sbv",
+		"objectType": "membercostshareObjecT5"
 	},
 	"linkedPlanServices": [{
 		"linkedService": {
-			"_org": "bigdata7225.com",
-			"objectId": "6234520xvc30asdf",
+			"_org": "here.com",
+			"objectId": "1134520xvc30asdfm",
 			"objectType": "service",
 			"name": "Yearly physical exam"
 		},
 		"planserviceCostShares": {
 			"deductible": "9",
-			"_org": "bigdata7225.com",
+			"_org": "here.com",
 			"copay": "90",
-			"objectId": "8234512xvc1314asdfs",
+			"objectId": "6134512xvc1314asdfm",
 			"objectType": "membercostshareobjectType"
 		},
-		"_org": "hi2.com",
-		"objectId": "97283xvx9asdff",
+		"_org": "here.com",
+		"objectId": "71283xvx9asdfm",
 		"objectType": "planservice"
 	}, {
 		"linkedService": {
-			"_org": "bigdata7225.com",
-			"objectId": "1234520xvc30sfs",
+			"_org": "ibm.com",
+			"objectId": "1434520xvc30sfm",
 			"objectType": "serviceobjectType",
 			"name": "well baby"
 		},
 		"planserviceCostShares": {
-			"deductible": "10",
-			"_org": "bigdata7225.com",
-			"copay": "175",
-			"objectId": "1234512xvc1314sdfsd",
+			"deductible": 10,
+			"_org": "here.com",
+			"copay": 175,
+			"objectId": "1334512xvc1314sdfsm",
 			"objectType": "membercostshareobjectType"
 		},
 		
-		"_org": "bigdata7225.com",
+		"_org": "here.com",
 		
-		"objectId": "97283xvx9sdf",
+		"objectId": "697183xvx9sdm",
 		"objectType": "planserviceobjectType"
 	}],
 
 
-	"_org": "bigdata7225.com",
-	"objectId": "abcdefghi09",
+	"_org": "here2.com",
+	"objectId": "22zcdefgm51483",
 	"objectType": "plan",
-	"planType": "inNetwork",
-	"creationDate": "11-07-2019"
+	"planType": "outPTDepartment",
+	"creationDate": "19-05-2017"
 }
