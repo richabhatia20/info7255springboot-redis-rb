@@ -65,7 +65,9 @@ The server will reply with PONG
 * PUT http://localhost:8080/insuranceplans
 
 ```
-$ curl -H "Content-Type: application/json" -X PUT  -d '{
+$ curl -H "Content-Type: application/json" -X PUT  -d 
+
+'{
 	"creationDate": "03-10-1994",
 	"org": "myOrg3",
 	"objectId": "sheenam",
