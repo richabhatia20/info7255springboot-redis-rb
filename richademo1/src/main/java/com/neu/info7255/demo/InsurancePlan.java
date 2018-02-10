@@ -3,6 +3,8 @@
  */
 package com.neu.info7255.demo;
 
+import java.util.ArrayList;
+
 /**
  * @author richabhatia
  *
@@ -10,31 +12,50 @@ package com.neu.info7255.demo;
 public class InsurancePlan {
 	
 	private String creationDate;
-	private String org;
+	private String _org;
 	private String objectId;
 	private String objectType;
 	private String planType;
 	
 	
+	private PlanCostShares planCostShares;
+	private ArrayList<LinkedPlanServices> linkedPlanServicesList = new ArrayList<LinkedPlanServices>();
+	//= new ArrayList<LinkedPlanServices>();
+	
+	//LinkedPlanServices linkedPlanServices;
 	
 	
+
+
 	
-	public InsurancePlan(String creationDate, String org, String objectId, String objectType, String planType) {
-		
-		this.creationDate = creationDate;
-		this.org = org;
-		this.objectId = objectId;
-		this.objectType = objectType;
-		this.planType = planType;
-	}
+
+
 
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return "PlanDetails creationDate: "+ creationDate + ", org: " +org + ", objectId: " + objectId+ ", objectType: "+objectType;
+		return "PlanDetails creationDate: "+ creationDate + ", org: " +_org + ", objectId: " + objectId+ ", objectType: "+objectType;
 	}
 
 	
+
+	public InsurancePlan(String creationDate, String _org, String objectId, String objectType, String planType,
+			PlanCostShares planCostShares, LinkedPlanServices linkedPlanServices) {
+		super();
+		this.creationDate = creationDate;
+		this._org = _org;
+		this.objectId = objectId;
+		this.objectType = objectType;
+		this.planType = planType;
+		this.planCostShares = planCostShares;
+		
+		
+		//this.linkedPlanServicesList = new ArrayList<LinkedPlanServices>();
+		linkedPlanServicesList.add(linkedPlanServices);
+		//this.setLinkedPlanServicesList(linkedPlanServicesList);
+	}
+
+
 
 	public String getCreationDate() {
 		return creationDate;
@@ -45,11 +66,11 @@ public class InsurancePlan {
 	}
 
 	public String getOrg() {
-		return org;
+		return _org;
 	}
 
-	public void setOrg(String org) {
-		this.org = org;
+	public void setOrg(String _org) {
+		this._org = _org;
 	}
 
 	public String getObjectId() {
@@ -80,4 +101,27 @@ public class InsurancePlan {
 		// TODO Auto-generated constructor stub
 	}
 
+	public PlanCostShares getPlanCostShares() {
+		return planCostShares;
+	}
+
+	public void setPlanCostShares(PlanCostShares planCostShares) {
+		this.planCostShares = planCostShares;
+	}
+
+
+
+	public ArrayList<LinkedPlanServices> getLinkedPlanServicesList() {
+		return linkedPlanServicesList;
+	}
+
+
+
+	public void setLinkedPlanServicesList(ArrayList<LinkedPlanServices> linkedPlanServicesList) {
+		this.linkedPlanServicesList = linkedPlanServicesList;
+	}
+
+
+
+	
 }

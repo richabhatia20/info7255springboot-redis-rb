@@ -1,5 +1,9 @@
 package com.neu.info7255.demo.controller;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+
 /*import java.util.Map;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -30,6 +34,7 @@ import com.neu.info7255.demo.InsurancePlan;
 //import com.neu.info7255.demo.Person;
 //import com.neu.info7255.demo.config.MyRedisConnection;
 //import com.neu.info7255.demo.validation.ValidateJSON;
+import com.neu.info7255.demo.validation.ValidationUtils;
 
 //import redis.clients.jedis.Jedis;
 
@@ -39,6 +44,11 @@ import com.neu.info7255.demo.InsurancePlan;
 
 //import com.google.common.reflect.TypeToken;
 //import com.google.gson.Gson;
+import org.json.JSONObject;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.github.fge.jsonschema.core.exceptions.ProcessingException;
 
 @RestController
 @RequestMapping(value = "/insuranceplans")
@@ -46,7 +56,7 @@ public class InsurancePlanController {
 	
 	
 	private CrudRepository<InsurancePlan, String> pRepository;
-	
+	File schemaFile = new File("/Users/richabhatia/Downloads/richademo1/src/main/resources/static/usecase-schema.json");
 	
 	
 	@Autowired
@@ -70,7 +80,47 @@ public class InsurancePlanController {
 	
 	@RequestMapping(method = RequestMethod.POST)
 	public InsurancePlan update(@RequestBody @Valid InsurancePlan plan){
+		System.out.println("post request");
+		ObjectMapper mapper = new ObjectMapper();
+		String json = null;
+		try {
+			json = mapper.writeValueAsString(plan);
+		} catch (JsonProcessingException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		File jsonFile = null;
+		FileWriter jsonFileWriter = null;
+		try{
+			
+			
+			 jsonFile = File.createTempFile("test", ".json");
+			 jsonFileWriter = new FileWriter(jsonFile);
+			jsonFileWriter.write(json);
+			 jsonFileWriter.close();
+		}catch(Exception e){
+			System.out.println("exception occurred :" + e.getMessage());
+			
+		}finally{
+			
+		}
 		
+		
+		 try {
+			if (ValidationUtils.isJsonValid(schemaFile, jsonFile)){
+			    	System.out.println("Valid!");
+			    }else{
+			    	System.out.println("NOT valid!");
+			    }
+		} catch (ProcessingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		//System.out.println("printing"+plan.getLinkedPlanServicesList().get(0));
 		return pRepository.save(plan);
 	}
 	

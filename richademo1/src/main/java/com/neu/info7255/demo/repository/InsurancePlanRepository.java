@@ -84,6 +84,7 @@ public class InsurancePlanRepository implements CrudRepository<InsurancePlan, St
 
 	@Override
 	public <S extends InsurancePlan> S save(S plan) {
+		System.out.println("saving plan");
 		hashOps.put(PLANS_KEY, plan.getPlanType(), plan);
 
 		return plan;
@@ -91,6 +92,7 @@ public class InsurancePlanRepository implements CrudRepository<InsurancePlan, St
 
 	@Override
 	public <S extends InsurancePlan> Iterable<S> save(Iterable<S> plans) {
+		System.out.println("saving plan2");
 		List<S> result = new ArrayList();
 
 		for(S entity : plans) {
