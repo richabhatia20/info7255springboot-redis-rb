@@ -26,99 +26,208 @@ The server will reply with PONG
 * Cloud Foundery discovery
 
 ## Various APIs
-* http://localhost:8080/persons
+* POST http://localhost:8080/insuranceplans
 ```
-[{
-	"firstName": "Bob",
-	"lastName": "Evans",
-	"emailAddress": "bobevans@someplace.com"
-}, {
-	"firstName": "John",
-	"lastName": "Doe",
-	"emailAddress": "johndoe@nowhere.com"
-}, {
-	"firstName": "Jane",
-	"lastName": "Smith",
-	"emailAddress": "jane@somewhere.com"
-}]
-```
-
-## Validating other requests through curl
-* PUT
-
-```
-$ curl -H "Content-Type: application/json" -X PUT  -d '{"firstName":"Richa","lastName":"Bhatia","emailAddress":"richa.bhatia@gmail.com"}' http://localhost:8080/persons
-{"firstName":"Richa","lastName":"Bhatia","emailAddress":"richa.bhatia@gmail.com"}
-```
-
-```
-$ redis-cli hgetall persons
- 1) "bobevans@someplace.com"
- 2) "{\"firstName\":\"Bob\",\"lastName\":\"Evans\",\"emailAddress\":\"bobevans@someplace.com\"}"
- 3) "johndoe@nowhere.com"
- 4) "{\"firstName\":\"John\",\"lastName\":\"Doe\",\"emailAddress\":\"johndoe@nowhere.com\"}"
- 5) "myname@example.com"
- 6) "{\"firstName\":\"My\",\"lastName\":\"Name\",\"emailAddress\":\"myname@example.com\"}"
- 7) "jane@somewhere.com"
- 8) "{\"firstName\":\"Jane\",\"lastName\":\"Smith\",\"emailAddress\":\"jane@somewhere.com\"}"
- 9) "richa.bhatia@gmail.com"
-10) "{\"firstName\":\"Richa\",\"lastName\":\"Bhatia\",\"emailAddress\":\"richa.bhatia@gmail.com\"}"
+{
+	"creationDate": "20-08-1991",
+	"org": "myOrg1",
+	"objectId": "richa",
+	"objectType": "plan",
+	"planType": "inNetwork",
+	"planCostShares": {
+		"deductible": "454",
+		"org": "myOrg1",
+		"copay": "54",
+		"objectId": "richa1",
+		"objectType": "abcPlanCostShares"
+	},
+	"linkedPlanServicesList": [{
+		"linkedService": {
+			"org": "myOrg1",
+			"objectId": "richa12",
+			"objectType": "service",
+			"name": "Yearly physical"
+		},
+		"planServiceCostShares": {
+			"deductible": 10,
+			"org": "richa3",
+			"copay": "175",
+			"objectId": "richa13",
+			"objectType": "membercostshare"
+		},
+		"org": "myOrg1",
+		"objectId": "richa14",
+		"objectType": "planservice"
+	}]
+}
 ```
 
-* GET 
+* PUT http://localhost:8080/insuranceplans
 
 ```
-$ curl -H "Content-Type: application/json" -X GET http://localhost:8080/persons/richa.bhatia%40gmail.com
+$ curl -H "Content-Type: application/json" -X PUT  -d '{
+	"creationDate": "03-10-1994",
+	"org": "myOrg3",
+	"objectId": "sheenam",
+	"objectType": "plan",
+	"planType": "outNetwork",
+	"planCostShares": {
+		"deductible": "454",
+		"org": "myOrg3",
+		"copay": "54",
+		"objectId": "sheenamb",
+		"objectType": "abcPlanCostShares"
+	},
+	"linkedPlanServicesList": [{
+		"linkedService": {
+			"org": "myOrg3",
+			"objectId": "sheenambh",
+			"objectType": "service",
+			"name": "Yearly physical"
+		},
+		"planServiceCostShares": {
+			"deductible": 10,
+			"org": "myOrg3",
+			"copay": 175,
+			"objectId": "sheenambh1",
+			"objectType": "membercostshare"
+		},
+		"org": "myOrg3",
+		"objectId": "sheenambh12",
+		"objectType": "planservice"
+	}]
+}' http://localhost:8080/insuranceplans
+{'message':'Plan saved successfully'}
+```
+
+```
+$ redis-cli hgetall plans
+1) "outNetwork"
+2) "{\"creationDate\":\"03-10-1994\",\"org\":\"myOrg3\",\"objectId\":\"sheenam-1ef561d9-7c4e-4f9c-984c-053ac2399aee\",\"objectType\":\"plan\",\"planType\":\"outNetwork\",\"planCostShares\":{\"deductible\":\"454\",\"org\":\"myOrg3\",\"copay\":\"54\",\"objectId\":\"sheenamb-401695a4-2519-4c03-a9dd-11574ce67388\",\"objectType\":\"abcPlanCostShares\"},\"linkedPlanServicesList\":[{\"linkedService\":{\"org\":\"myOrg3\",\"objectId\":\"sheenambh\",\"objectType\":\"service\",\"name\":\"Yearly physical\"},\"planServiceCostShares\":{\"deductible\":\"10\",\"org\":\"myOrg3\",\"copay\":\"175\",\"objectId\":\"sheenambh1\",\"objectType\":\"membercostshare\"},\"org\":\"myOrg3\",\"objectId\":\"sheenambh12\",\"objectType\":\"planservice\"}]}"
+```
+
+* GET http://localhost:8080/insuranceplans
+
+```
+$ curl -H "Content-Type: application/json" -X GET http://localhost:8080/insuranceplans
 ```
 response:
 ```
-{"firstName":"Richa","lastName":"Bhatia","emailAddress":"richa.bhatia@gmail.com"}
+[
+    {
+        "creationDate": "03-10-1994",
+        "org": "myOrg3",
+        "objectId": "sheenam-aaff665e-6b8b-45da-8d41-0aa6aaecf048",
+        "objectType": "plan",
+        "planType": "outNetwork",
+        "planCostShares": {
+            "deductible": "454",
+            "org": "myOrg3",
+            "copay": "54",
+            "objectId": "sheenamb-4793c82c-af3d-4277-82cc-cc29fc104cfe",
+            "objectType": "abcPlanCostShares"
+        },
+        "linkedPlanServicesList": [
+            {
+                "linkedService": {
+                    "org": "myOrg3",
+                    "objectId": "sheenambh",
+                    "objectType": "service",
+                    "name": "Yearly physical"
+                },
+                "planServiceCostShares": {
+                    "deductible": "10",
+                    "org": "myOrg3",
+                    "copay": "175",
+                    "objectId": "sheenambh1",
+                    "objectType": "membercostshare"
+                },
+                "org": "myOrg3",
+                "objectId": "sheenambh12",
+                "objectType": "planservice"
+            }
+        ]
+    },
+    {
+        "creationDate": "20-08-1991",
+        "org": "myOrg1",
+        "objectId": "richa-06930869-abf1-41c2-a8f6-fb2bfdee45be",
+        "objectType": "plan",
+        "planType": "inNetwork",
+        "planCostShares": {
+            "deductible": "454",
+            "org": "myOrg1",
+            "copay": "54",
+            "objectId": "richa1-d2519289-dd97-4127-895f-a8828fb5259a",
+            "objectType": "abcPlanCostShares"
+        },
+        "linkedPlanServicesList": [
+            {
+                "linkedService": {
+                    "org": "myOrg1",
+                    "objectId": "richa12",
+                    "objectType": "service",
+                    "name": "Yearly physical"
+                },
+                "planServiceCostShares": {
+                    "deductible": "10",
+                    "org": "richa3",
+                    "copay": "175",
+                    "objectId": "richa13",
+                    "objectType": "membercostshare"
+                },
+                "org": "myOrg1",
+                "objectId": "richa14",
+                "objectType": "planservice"
+            }
+        ]
+    }
+]
 ```
 
-* UPDATE VIA POST
+* GET BASED ON TYPE http://localhost:8080/insuranceplans/inNetwork
 
-```
-$ curl -H "Content-Type: application/json" -X POST  -d '{"firstName":"Richa","lastName":"Bhatia","emailAddress":"richa.bhatia91@gmail.com"}' 
-http://localhost:8080/persons
-
-```
 response:
 ```
-{"firstName":"Richa","lastName":"Bhatia","emailAddress":"richa.bhatia91@gmail.com"}
+{
+    "creationDate": "20-08-1991",
+    "org": "myOrg1",
+    "objectId": "richa-06930869-abf1-41c2-a8f6-fb2bfdee45be",
+    "objectType": "plan",
+    "planType": "inNetwork",
+    "planCostShares": {
+        "deductible": "454",
+        "org": "myOrg1",
+        "copay": "54",
+        "objectId": "richa1-d2519289-dd97-4127-895f-a8828fb5259a",
+        "objectType": "abcPlanCostShares"
+    },
+    "linkedPlanServicesList": [
+        {
+            "linkedService": {
+                "org": "myOrg1",
+                "objectId": "richa12",
+                "objectType": "service",
+                "name": "Yearly physical"
+            },
+            "planServiceCostShares": {
+                "deductible": "10",
+                "org": "richa3",
+                "copay": "175",
+                "objectId": "richa13",
+                "objectType": "membercostshare"
+            },
+            "org": "myOrg1",
+            "objectId": "richa14",
+            "objectType": "planservice"
+        }
+    ]
+}
 ```
 
-```
-$ redis-cli hgetall persons
- 1) "johndoe@nowhere.com"
- 2) "{\"firstName\":\"John\",\"lastName\":\"Doe\",\"emailAddress\":\"johndoe@nowhere.com\"}"
- 3) "myname@example.com"
- 4) "{\"firstName\":\"My\",\"lastName\":\"Name\",\"emailAddress\":\"myname@example.com\"}"
- 5) "richa.bhatia91@gmail.com"
- 6) "{\"firstName\":\"Richa\",\"lastName\":\"Bhatia\",\"emailAddress\":\"richa.bhatia91@gmail.com\"}"
- 7) "bobevans@someplace.com"
- 8) "{\"firstName\":\"Bob\",\"lastName\":\"Evans\",\"emailAddress\":\"bobevans@someplace.com\"}"
- 9) "richa.bhatia@gmail.com"
-10) "{\"firstName\":\"Richa\",\"lastName\":\"Bhatia\",\"emailAddress\":\"richa.bhatia@gmail.com\"}"
-11) "jane@somewhere.com"
-12) "{\"firstName\":\"Jane\",\"lastName\":\"Smith\",\"emailAddress\":\"jane@somewhere.com\"}"
-```
 
 * DELETE
 
 ```
-$ curl -H "Content-Type: application/json" -X DELETE http://localhost:8080/persons/richa.bhatia%40gmail.com
-```
-
-```
-$ redis-cli hgetall persons
- 1) "johndoe@nowhere.com"
- 2) "{\"firstName\":\"John\",\"lastName\":\"Doe\",\"emailAddress\":\"johndoe@nowhere.com\"}"
- 3) "myname@example.com"
- 4) "{\"firstName\":\"My\",\"lastName\":\"Name\",\"emailAddress\":\"myname@example.com\"}"
- 5) "richa.bhatia91@gmail.com"
- 6) "{\"firstName\":\"Richa\",\"lastName\":\"Bhatia\",\"emailAddress\":\"richa.bhatia91@gmail.com\"}"
- 7) "bobevans@someplace.com"
- 8) "{\"firstName\":\"Bob\",\"lastName\":\"Evans\",\"emailAddress\":\"bobevans@someplace.com\"}"
- 9) "jane@somewhere.com"
-10) "{\"firstName\":\"Jane\",\"lastName\":\"Smith\",\"emailAddress\":\"jane@somewhere.com\"}"
+$ curl -H "Content-Type: application/json" -X DELETE http://localhost:8080/insuranceplans/outP2Department
 ```
