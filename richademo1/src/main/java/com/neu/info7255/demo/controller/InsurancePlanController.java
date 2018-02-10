@@ -3,8 +3,14 @@ package com.neu.info7255.demo.controller;
 //import java.io.File;
 //import java.io.FileWriter;
 import java.io.IOException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.Date;
+import java.util.Map;
 import java.util.UUID;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +19,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.neu.info7255.demo.InsurancePlan;
@@ -35,6 +42,8 @@ import org.json.JSONObject;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.fge.jsonschema.core.exceptions.ProcessingException;
+import com.google.common.reflect.TypeToken;
+import com.google.gson.Gson;
 
 @RestController
 @RequestMapping(value = "/insuranceplans")
@@ -58,13 +67,16 @@ public class InsurancePlanController {
 	}
 	
 	@RequestMapping(method = RequestMethod.PUT)
-	public InsurancePlan add(@RequestBody @Valid InsurancePlan plan){
-		
+	@ResponseBody
+	public InsurancePlan add(@RequestBody @Valid InsurancePlan plan,HttpServletRequest request, HttpServletResponse response) throws NoSuchAlgorithmException{
+		String etag = generateEtagsForResponse(new Date().toString());
+		response.setHeader("eTag", etag);
 		return pRepository.save(plan);
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
-	public InsurancePlan update(@RequestBody @Valid InsurancePlan plan){
+	@ResponseBody
+	public InsurancePlan update(@RequestBody @Valid InsurancePlan plan,HttpServletRequest request, HttpServletResponse response) throws NoSuchAlgorithmException{
 		String planObjID = plan.getObjectId()+"-"+UUID.randomUUID();
 		String planCostShareObjID = plan.getPlanCostShares().getObjectId()+ "-"+ UUID.randomUUID();
 		
@@ -78,9 +90,17 @@ public class InsurancePlanController {
 		
 		System.out.println("post request");
 		ObjectMapper mapper = new ObjectMapper();
+		
+		
+		
+		
+		
+		
 		String json = null;
 		try {
 			json = mapper.writeValueAsString(plan);
+			Map<String, Object> myMap = new Gson().fromJson(json, new TypeToken<Map<String,Object>>(){}.getType()) ;
+			System.out.println("map using type token: " +myMap);
 		} catch (JsonProcessingException e1) {
 			// TODO Auto-generated catch block
 			System.out.println("error occured");
@@ -95,6 +115,8 @@ public class InsurancePlanController {
 			System.out.println("error occured");
 			e1.printStackTrace();
 		}
+		String etag = generateEtagsForResponse(new Date().toString());
+		response.setHeader("eTag", etag);
 		 try {
 			if (ValidationUtils.isJsonValid(schemaFile, json)){
 			    	System.out.println("Valid!");
@@ -129,6 +151,20 @@ public class InsurancePlanController {
         pRepository.delete(planType);
     }
 
-	
+	public String generateEtagsForResponse(String str) throws NoSuchAlgorithmException{
+		MessageDigest md = MessageDigest.getInstance("MD5");
+        md.update(str.getBytes());
+
+        byte byteData[] = md.digest();
+
+        //convert the byte to hex format method 1
+        StringBuffer sb = new StringBuffer();
+        for (int i = 0; i < byteData.length; i++) {
+         sb.append(Integer.toString((byteData[i] & 0xff) + 0x100, 16).substring(1));
+        }
+        
+        return sb.toString();
+		
+	}
 
 }
