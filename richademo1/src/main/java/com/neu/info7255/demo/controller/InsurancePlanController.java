@@ -150,7 +150,12 @@ public class InsurancePlanController {
     public void deleteById(@PathVariable String planType) {
     	System.out.println("delete plan type:" + planType);
         pRepository.delete(planType);
-    }
+    }/*
+    @RequestMapping(value = "/{objectId:.+}", method = RequestMethod.DELETE)
+    public void deleteByObjectId(@PathVariable String objectId) {
+    	System.out.println("delete object id:" + objectId);
+        pRepository.delete(objectId);
+    }*/
 
 	public String generateEtagsForResponse(String str) throws NoSuchAlgorithmException{
 		MessageDigest md = MessageDigest.getInstance("MD5");

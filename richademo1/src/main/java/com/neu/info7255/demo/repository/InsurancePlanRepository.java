@@ -41,6 +41,11 @@ public class InsurancePlanRepository implements CrudRepository<InsurancePlan, St
 
 	@Override
 	public void delete(String planType) {
+		System.out.println("deleting plan with objectID:"+ planType);
+		Jedis jedis = MyRedisConnection.getConnection();
+		jedis.hdel(PLANS_KEY, planType);
+		
+		
 		hashOps.delete(PLANS_KEY, planType);
 	}
 
