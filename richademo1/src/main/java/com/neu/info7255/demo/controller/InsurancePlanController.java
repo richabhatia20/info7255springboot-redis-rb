@@ -27,7 +27,7 @@ import com.neu.info7255.demo.LinkedPlanServices;
 import com.neu.info7255.demo.StringLiterals;
 import com.neu.info7255.demo.validation.ValidationUtils;
 
-import org.apache.http.impl.io.SocketOutputBuffer;
+
 
 //import redis.clients.jedis.Jedis;
 
@@ -60,8 +60,10 @@ public class InsurancePlanController {
 	}
 	
 	@RequestMapping(method = RequestMethod.GET)
-	public Iterable<InsurancePlan> plans(){
-		
+	@ResponseBody
+	public Iterable<InsurancePlan> plans(HttpServletRequest request, HttpServletResponse response) throws NoSuchAlgorithmException{
+		String etag = generateEtagsForResponse(new Date().toString());
+		response.setHeader("eTag", etag);
 		
 		return pRepository.findAll();
 	}
