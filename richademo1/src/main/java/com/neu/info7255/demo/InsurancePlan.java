@@ -39,11 +39,11 @@ public class InsurancePlan {
 
 	
 
-	/*public InsurancePlan(String creationDate, String _org, String objectId, String objectType, String planType,
-			PlanCostShares planCostShares, LinkedPlanServices linkedPlanServices) {
+	public InsurancePlan(String creationDate, String org, String objectId, String objectType, String planType,
+			PlanCostShares planCostShares, LinkedPlanServices lps) {
 		super();
 		this.creationDate = creationDate;
-		this._org = _org;
+		this.org = org;
 		this.objectId = objectId;
 		this.objectType = objectType;
 		this.planType = planType;
@@ -51,10 +51,10 @@ public class InsurancePlan {
 	
 		
 		//this.linkedPlanServicesList = new ArrayList<LinkedPlanServices>();
-		linkedPlanServicesList.add(linkedPlanServices);
+		linkedPlanServices.add(lps);
 		//this.setLinkedPlanServicesList(linkedPlanServicesList);
 	}
-	*/
+	
 
 
 	public String getCreationDate() {
@@ -131,7 +131,7 @@ public class InsurancePlan {
 		ls.setObjectType("service");
 		ls.setOrg("Yearly physical exam");
 		PlanserviceCostShares pcs = new PlanserviceCostShares();
-		pcs.set_org("test");
+		pcs.setOrg("test");
 		pcs.setCopay("90");
 		pcs.setDeductible("here.com");
 		pcs.setObjectId("6134512xvc1314asdfm");

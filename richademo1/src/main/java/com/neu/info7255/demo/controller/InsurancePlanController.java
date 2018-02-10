@@ -147,7 +147,7 @@ public class InsurancePlanController {
 		plan.setObjectId(planObjID);
 		plan.getPlanCostShares().setObjectId(planCostShareObjID);
 		
-		plan.createLinkedPlanServicesList();
+		//plan.createLinkedPlanServicesList();
 		
 		LinkedPlanServices lps = plan.getLinkedPlanServicesList().get(0);
 		System.out.println("objID: "+lps.getObjectId());

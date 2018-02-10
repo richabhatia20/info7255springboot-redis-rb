@@ -23,16 +23,16 @@ public class PlanserviceCostShares {
 
 	@Override
 	public String toString() {
-		return "PlanserviceCostShares [deductible=" + deductible + ", _org=" + org + ", copay=" + copay + ", objectId="
+		return "PlanserviceCostShares [deductible=" + deductible + ", org=" + org + ", copay=" + copay + ", objectId="
 				+ objectId + ", objectType=" + objectType + "]";
 	}
 
 
 
-	public PlanserviceCostShares(String deductible, String _org, String copay, String objectId, String objectType) {
+	public PlanserviceCostShares(String deductible, String org, String copay, String objectId, String objectType) {
 		super();
 		this.deductible = deductible;
-		this.org = _org;
+		this.org = org;
 		this.copay = copay;
 		this.objectId = objectId;
 		this.objectType = objectType;
@@ -46,12 +46,12 @@ public class PlanserviceCostShares {
 		this.deductible = deductible;
 	}
 
-	public String get_org() {
+	public String getOrg() {
 		return org;
 	}
 
-	public void set_org(String _org) {
-		this.org = _org;
+	public void setOrg(String org) {
+		this.org = org;
 	}
 
 	public String getCopay() {
