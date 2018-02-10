@@ -1,53 +1,53 @@
 {
 	"planCostShares": {
-		"deductible": 20,
-		"_org": "example.com",
-		"copay": 10,
-		"objectId": "1234vxc2324sdf",
-		"objectType": "membercostshare"
+		"deductible": "70",
+		"_org": "bigdata7225.com",
+		"copay": "15",
+		"objectId": "6034vxc2324sdf",
+		"objectType": "membercostshareObjecT2"
 	},
 	"linkedPlanServices": [{
 		"linkedService": {
-			"_org": "example.com",
-			"objectId": "1234520xvc30asdf",
+			"_org": "bigdata7225.com",
+			"objectId": "6234520xvc30asdf",
 			"objectType": "service",
-			"name": "Yearly physical"
+			"name": "Yearly physical exam"
 		},
 		"planserviceCostShares": {
-			"deductible": 10,
-			"_org": "example.com",
-			"copay": 175,
-			"objectId": "1234512xvc1314asdfs",
-			"objectType": "membercostshare"
+			"deductible": "9",
+			"_org": "bigdata7225.com",
+			"copay": "90",
+			"objectId": "8234512xvc1314asdfs",
+			"objectType": "membercostshareobjectType"
 		},
-		"_org": "example.com",
-		"objectId": "27283xvx9asdff",
+		"_org": "hi2.com",
+		"objectId": "97283xvx9asdff",
 		"objectType": "planservice"
 	}, {
 		"linkedService": {
-			"_org": "example.com",
+			"_org": "bigdata7225.com",
 			"objectId": "1234520xvc30sfs",
-			"objectType": "service",
+			"objectType": "serviceobjectType",
 			"name": "well baby"
 		},
 		"planserviceCostShares": {
-			"deductible": 10,
-			"_org": "example.com",
-			"copay": 175,
+			"deductible": "10",
+			"_org": "bigdata7225.com",
+			"copay": "175",
 			"objectId": "1234512xvc1314sdfsd",
-			"objectType": "membercostshare"
+			"objectType": "membercostshareobjectType"
 		},
 		
-		"_org": "example.com",
+		"_org": "bigdata7225.com",
 		
-		"objectId": "27283xvx9sdf",
-		"objectType": "planservice"
+		"objectId": "97283xvx9sdf",
+		"objectType": "planserviceobjectType"
 	}],
 
 
-	"_org": "example.com",
-	"objectId": "12xvxc345ssdsds",
+	"_org": "bigdata7225.com",
+	"objectId": "abcdefghi09",
 	"objectType": "plan",
 	"planType": "inNetwork",
-	"creationDate": "12-12-3000"
+	"creationDate": "11-07-2019"
 }

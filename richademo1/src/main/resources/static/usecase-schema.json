@@ -10,12 +10,12 @@
       "properties": {
         "deductible": {
           "$id": "/properties/planCostShares/properties/deductible",
-          "type": "integer",
+          "type": "string",
           "title": "The Deductible Schema",
           "description": "An explanation about the purpose of this instance.",
-          "default": 0,
+          "default": "",
           "examples": [
-            20
+            "70"
           ]
         },
         "_org": {
@@ -25,17 +25,17 @@
           "description": "An explanation about the purpose of this instance.",
           "default": "",
           "examples": [
-            "example.com"
+            "bigdata.com"
           ]
         },
         "copay": {
           "$id": "/properties/planCostShares/properties/copay",
-          "type": "integer",
+          "type": "string",
           "title": "The Copay Schema",
           "description": "An explanation about the purpose of this instance.",
-          "default": 0,
+          "default": "",
           "examples": [
-            10
+            "15"
           ]
         },
         "objectId": {
@@ -45,7 +45,7 @@
           "description": "An explanation about the purpose of this instance.",
           "default": "",
           "examples": [
-            "1234vxc2324sdf"
+            "6034vxc2324sdf"
           ]
         },
         "objectType": {
@@ -55,7 +55,7 @@
           "description": "An explanation about the purpose of this instance.",
           "default": "",
           "examples": [
-            "membercostshare"
+            "membercostshareObjecT2"
           ]
         }
       }
@@ -78,7 +78,7 @@
                 "description": "An explanation about the purpose of this instance.",
                 "default": "",
                 "examples": [
-                  "example.com"
+                  "bigdata.com"
                 ]
               },
               "objectId": {
@@ -88,7 +88,7 @@
                 "description": "An explanation about the purpose of this instance.",
                 "default": "",
                 "examples": [
-                  "1234520xvc30asdf"
+                  "6234520xvc30asdf"
                 ]
               },
               "objectType": {
@@ -108,7 +108,7 @@
                 "description": "An explanation about the purpose of this instance.",
                 "default": "",
                 "examples": [
-                  "Yearly physical"
+                  "Yearly physical exam"
                 ]
               }
             }
@@ -119,12 +119,12 @@
             "properties": {
               "deductible": {
                 "$id": "/properties/linkedPlanServices/items/properties/planserviceCostShares/properties/deductible",
-                "type": "integer",
+                "type": "string",
                 "title": "The Deductible Schema",
                 "description": "An explanation about the purpose of this instance.",
-                "default": 0,
+                "default": "",
                 "examples": [
-                  10
+                  "9"
                 ]
               },
               "_org": {
@@ -134,17 +134,17 @@
                 "description": "An explanation about the purpose of this instance.",
                 "default": "",
                 "examples": [
-                  "example.com"
+                  "bigdata.com"
                 ]
               },
               "copay": {
                 "$id": "/properties/linkedPlanServices/items/properties/planserviceCostShares/properties/copay",
-                "type": "integer",
+                "type": "string",
                 "title": "The Copay Schema",
                 "description": "An explanation about the purpose of this instance.",
-                "default": 0,
+                "default": "",
                 "examples": [
-                  175
+                  "90"
                 ]
               },
               "objectId": {
@@ -154,7 +154,7 @@
                 "description": "An explanation about the purpose of this instance.",
                 "default": "",
                 "examples": [
-                  "1234512xvc1314asdfs"
+                  "8234512xvc1314asdfs"
                 ]
               },
               "objectType": {
@@ -164,7 +164,7 @@
                 "description": "An explanation about the purpose of this instance.",
                 "default": "",
                 "examples": [
-                  "membercostshare"
+                  "membercostshareobjectType"
                 ]
               }
             }
@@ -176,7 +176,7 @@
             "description": "An explanation about the purpose of this instance.",
             "default": "",
             "examples": [
-              "example.com"
+              "hi2.com"
             ]
           },
           "objectId": {
@@ -186,7 +186,7 @@
             "description": "An explanation about the purpose of this instance.",
             "default": "",
             "examples": [
-              "27283xvx9asdff"
+              "97283xvx9asdff"
             ]
           },
           "objectType": {
@@ -209,7 +209,7 @@
       "description": "An explanation about the purpose of this instance.",
       "default": "",
       "examples": [
-        "example.com"
+        "bigdata.com"
       ]
     },
     "objectId": {
@@ -219,7 +219,7 @@
       "description": "An explanation about the purpose of this instance.",
       "default": "",
       "examples": [
-        "12xvxc345ssdsds"
+        "abcdefghi99"
       ]
     },
     "objectType": {
@@ -249,7 +249,7 @@
       "description": "An explanation about the purpose of this instance.",
       "default": "",
       "examples": [
-        "12-12-3000"
+        "10-07-2009"
       ]
     }
   }
