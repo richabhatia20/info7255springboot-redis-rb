@@ -2,6 +2,7 @@ package com.neu.info7255.demo.repository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import javax.persistence.Id;
@@ -13,6 +14,9 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import com.neu.info7255.demo.InsurancePlan;
+import com.neu.info7255.demo.config.MyRedisConnection;
+
+import redis.clients.jedis.Jedis;
 
 
 public class InsurancePlanRepository implements CrudRepository<InsurancePlan, String> {
@@ -88,6 +92,16 @@ public class InsurancePlanRepository implements CrudRepository<InsurancePlan, St
 		hashOps.put(PLANS_KEY, plan.getPlanType(), plan);
 
 		return plan;
+	}
+	
+	
+	public String saveMap(Map p) {
+		System.out.println("saving map");
+		Jedis jedis = MyRedisConnection.getConnection();
+		jedis.hmset(PLANS_KEY, p);
+		//hashOps.put(PLANS_KEY, plan.getPlanType(), plan);
+
+		return "done";
 	}
 
 	@Override

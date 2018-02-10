@@ -95,14 +95,13 @@ public class InsurancePlanController {
 		
 		
 		
-		
-		
-		
 		String json = null;
 		try {
 			json = mapper.writeValueAsString(plan);
 			Map<String, Object> myMap = new Gson().fromJson(json, new TypeToken<Map<String,Object>>(){}.getType()) ;
 			System.out.println("map using type token: " +myMap);
+			//pRepository.save(myMap);
+			
 		} catch (JsonProcessingException e1) {
 			// TODO Auto-generated catch block
 			System.out.println("error occured");
