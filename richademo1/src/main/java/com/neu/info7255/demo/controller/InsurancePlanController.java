@@ -160,8 +160,11 @@ public class InsurancePlanController {
 		String json = null;
 		try {
 			json = mapper.writeValueAsString(plan);
+			 System.out.println("json file :"+ json);
 			Map<String, Object> myMap = new Gson().fromJson(json, new TypeToken<Map<String,Object>>(){}.getType()) ;
 			System.out.println("map using type token: " +myMap);
+			json = mapper.writeValueAsString(myMap);
+			System.out.println("new json file with map:"+ json);
 			//pRepository.save(myMap);
 			
 		} catch (JsonProcessingException e1) {
@@ -181,6 +184,8 @@ public class InsurancePlanController {
 		String etag = generateEtagsForResponse(new Date().toString());
 		response.setHeader("eTag", etag);
 		 try {
+			 //System.out.println("schema file :" + schemaFile);
+			 
 			if (ValidationUtils.isJsonValid(schemaFile, json)){
 			    	System.out.println("Valid!");
 			    	return pRepository.save(plan);
