@@ -1,4 +1,6 @@
+
 # Project for INFO 7255 Big Data indexing techniques
+
 Spring Boot with Redis datastore
 
 ## Installing Redis
